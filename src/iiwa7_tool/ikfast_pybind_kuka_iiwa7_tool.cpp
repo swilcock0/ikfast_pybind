@@ -7,7 +7,7 @@
 #define IKFAST_HAS_LIBRARY
 #endif
 
-#include <kuka_kr6_r900/ikfast.h>
+#include <iiwa7_tool/ikfast.h>
 
 #ifdef IKFAST_NAMESPACE
 using namespace IKFAST_NAMESPACE;
@@ -15,12 +15,12 @@ using namespace IKFAST_NAMESPACE;
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(ikfast_kuka_kr6_r900, m)
+PYBIND11_MODULE(ikfast_iiwa7_tool, m)
 {
     m.doc() = R"pbdoc(
-        kuka_kr6_r900
+        iiwa7_tool
         -----------------------
-        .. currentmodule:: kuka_kr6_r900
+        .. currentmodule:: iiwa7_tool
         .. autosummary::
            :toctree: _generate
            get_ik
@@ -78,7 +78,7 @@ PYBIND11_MODULE(ikfast_kuka_kr6_r900, m)
     py::arg("trans_list"),
     py::arg("rot_list"),
     R"pbdoc(
-        get inverse kinematic solutions for kuka_kr6_r900
+        get inverse kinematic solutions for iiwa7_tool
     )pbdoc");
 
     m.def("get_fk", [](const std::vector<double> &joint_list)
@@ -114,7 +114,7 @@ PYBIND11_MODULE(ikfast_kuka_kr6_r900, m)
     },
     py::arg("joint_list"),
     R"pbdoc(
-        get forward kinematic solutions for kuka_kr6_r900
+        get forward kinematic solutions for iiwa7_tool
     )pbdoc");
 
     m.def("get_dof", []()
